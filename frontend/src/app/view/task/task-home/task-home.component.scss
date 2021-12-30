@@ -1,0 +1,11 @@
+.size {
+    width: 30rem;
+}
+
+.ani {
+    transition: 400ms;
+}
+
+.ani:hover {
+    transform: scale(1.30);
+}

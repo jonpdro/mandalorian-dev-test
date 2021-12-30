@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-auto mt-5">
+            <div class="card">
+                <h5 class="card-header">Deletar uma Tarefa</h5>
+                <div class="card-body">
+                    <span class="text">
+                       Você deseja <strong class="text-danger">apagar</strong> a tarefa "{{ tarefa.key }}"?
+                    </span>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex">
+                        <button type="submit" title="Voltar" (click)="cancel()" class="btn btn-primary mr-auto">
+                            Voltar
+                        </button>
+                        <button type="submit" title="Apagar Tarefa" (click)="deleteTask()" class="btn btn-danger ml-auto">
+                            Sim, eu quero.
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

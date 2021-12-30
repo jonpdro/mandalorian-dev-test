@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col mt-5">
+            <div class="card size">
+                <h5 class="card-header">Visualizar Tarefa</h5>
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Chave</th>
+                                <th scope="col">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ tarefa.key }}</td>
+                                <td>{{ tarefa.value }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex">
+                        <a routerLink="/task">
+                            <button type="submit" class="btn btn-primary" title="Voltar">
+                                Voltar
+                            </button>
+                        </a>
+                        <a class="ml-auto" [routerLink]="['/task/delete/', tarefa.key]">
+                            <button type="submit" class="btn btn-danger" title="Apagar Tarefa">
+                                Deletar
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

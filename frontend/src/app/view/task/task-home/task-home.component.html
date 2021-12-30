@@ -1,0 +1,45 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col mt-5">
+            <div class="card size">
+                <h5 class="card-header">Tarefas</h5>
+                <div class="card-body">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Chave</th>
+                                <th scope="col">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of tarefas">
+                                <td>{{ row }}</td>
+                                <td>
+                                    <a routerLink="/task/view/{{row}}">
+                                        <mat-icon class="text-warning ani" title="Ver Tarefa">
+                                            visibility
+                                        </mat-icon>
+                                    </a>
+                                    <a routerLink="/task/delete/{{row}}">
+                                        <mat-icon class="pl-3 text-danger ani" title="Apagar Tarefa">
+                                            delete
+                                        </mat-icon>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center">
+                        <a routerLink="/add/task">
+                            <button type="submit" class="btn btn-success">
+                                Adicionar nova Tarefa
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
