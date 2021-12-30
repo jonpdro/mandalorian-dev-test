@@ -1,6 +1,8 @@
+import { HeaderService } from './../../../model/header.service';
+import { SnackbarService } from './../../../model/snackbar.service';
 import { Task } from './../../../model/Task';
 import { TaskService } from './../../../controller/task.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,16 +19,28 @@ export class TaskCreateComponent implements OnInit {
 
   constructor(
     private service: TaskService,
-    private route: Router
-  ) { }
+    private route: Router,
+    private alert: SnackbarService,
+    private headerService: HeaderService
+  ) {
+    headerService.headerData = {
+      title: 'Criação de Tarefas',
+      routeUrl: '/add/task'
+    }
+  }
 
   ngOnInit(): void {
   }
 
   createTask() {
-    return this.service.post(this.tarefa).subscribe(() => {
-      this.route.navigate(['/task'])
-    })
+    if (this.tarefa.value.length >= 10){
+      return this.service.post(this.tarefa).subscribe(() => {
+        this.alert.showAlert('Tarefa criada com sucesso!')
+        this.route.navigate(['/task'])
+      });
+    } else {
+      return this.alert.showAlert('Ops! O valor deve conter pelo menos 10 caracteres!')
+    }
   }
 
   cancel() {

@@ -1,3 +1,5 @@
+import { HeaderService } from './../../../model/header.service';
+import { SnackbarService } from './../../../model/snackbar.service';
 import { Task } from './../../../model/Task';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from './../../../controller/task.service';
@@ -18,8 +20,15 @@ export class TaskDeleteComponent implements OnInit {
   constructor(
     private service: TaskService,
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private alert: SnackbarService,
+    private headerService: HeaderService
+    ) {
+        headerService.headerData = {
+          title: 'Deleção de Tarefas',
+          routeUrl: '/task/delete'
+        }
+     }
 
   ngOnInit() {
     const key = this.route.snapshot.params['key']
@@ -31,6 +40,7 @@ export class TaskDeleteComponent implements OnInit {
 
   deleteTask() {
     return this.service.delete(this.tarefa).subscribe(() => {
+      this.alert.showAlert('Tarefa deletada com sucesso!')
       this.router.navigate(['/task'])
     })
   }

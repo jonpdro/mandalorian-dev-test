@@ -1,3 +1,4 @@
+import { HeaderService } from './../../../model/header.service';
 import { Task } from './../../../model/Task';
 import { TaskService } from './../../../controller/task.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,8 +13,14 @@ export class TaskHomeComponent implements OnInit {
   tarefas: Task[]
 
   constructor(
-    private service: TaskService
-  ) { }
+    private service: TaskService,
+    private headerService: HeaderService
+    ) {
+        headerService.headerData = {
+          title: 'Home - Tabela de Tarefas',
+          routeUrl: '/task'
+        }
+     }
 
   ngOnInit() {
     this.getAll()

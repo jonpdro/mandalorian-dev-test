@@ -1,3 +1,4 @@
+import { HeaderService } from './../../../model/header.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TaskService } from './../../../controller/task.service';
 import { Task } from './../../../model/Task';
@@ -18,8 +19,14 @@ export class TaskViewComponent implements OnInit {
   constructor(
     private service: TaskService,
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private headerService: HeaderService
+    ) {
+        headerService.headerData = {
+          title: 'Visualizar Tarefa',
+          routeUrl: '/add/task'
+        }
+     }
 
   ngOnInit() {
     const key = this.route.snapshot.params['key']

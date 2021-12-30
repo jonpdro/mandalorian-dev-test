@@ -12,9 +12,9 @@
                         </div>
                         <div class="form-group">
                             <label>Valor da Tarefa</label>
-                            <input [(ngModel)]='tarefa.value' type="text" name="value" class="form-control" id="valor"
+                            <input required minlength="10" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32);" [(ngModel)]='tarefa.value' name="value" type="text" class="form-control"
                                 placeholder="Insira um valor">
-                            <small id="emailHelp" class="form-text text-muted">O valor deve conter pelo menos 10
+                            <small class="form-text text-muted">O valor deve conter pelo menos 10
                                 caracteres e sem caracteres especiais.</small>
                         </div>
                     </form>

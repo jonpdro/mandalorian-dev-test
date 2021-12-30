@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './view/template/header/header.component';
@@ -30,7 +31,8 @@ import { TaskViewComponent } from './view/task/task-view/task-view.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
